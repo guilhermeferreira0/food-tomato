@@ -1,9 +1,9 @@
 import { type Request, type Response } from 'express';
 import { app } from './src/app';
 import { connectDb } from './src/config/db';
-import { foodRoute } from './src/routes/foodRoute';
-import dotenv from 'dotenv';
-dotenv.config();
+import { foodRouter } from './src/routes/foodRouter';
+import { userRouter } from './src/routes/userRouter';
+import 'dotenv/config';
 
 const port = process.env.PORT || 3333;
 app.listen(port, () => {
@@ -15,8 +15,9 @@ connectDb().then(res => {
 });
 
 // Api endpoints
-app.use('/api/food', foodRoute);
+app.use('/api/food', foodRouter);
+app.use('/api/user', userRouter);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send("Hello!1");
+  res.json({success: true, data: 'API Working'});
 });

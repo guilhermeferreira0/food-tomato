@@ -1,7 +1,6 @@
 import { type Request, type Response } from "express";
 import { ObjectId } from 'mongodb';
 import { Food } from "../models/foodModel";
-import { foodRoute } from "../routes/foodRoute";
 
 // add new food
 export async function addFood(req: Request, res: Response) {
