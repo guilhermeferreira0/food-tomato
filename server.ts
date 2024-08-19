@@ -15,7 +15,7 @@ connectDb().then(res => {
 });
 
 // Api endpoints
-app.use('/api', foodRoute);
+app.use('/api/food', foodRoute);
 
 app.get('/', (req: Request, res: Response) => {
   res.send("Hello!1");
