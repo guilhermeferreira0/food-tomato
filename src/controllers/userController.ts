@@ -3,7 +3,7 @@ import { User } from "../models/userModel";
 import jwt from "jsonwebtoken";
 import validator from "validator"
 import { hashPassword, verifyHashedPassword } from "../utils/hash";
-import { createToken } from "../utils/createToken";
+import { createToken } from "../utils/token";
 
 // login user
 export async function loginUser(req: Request, res: Response) {
