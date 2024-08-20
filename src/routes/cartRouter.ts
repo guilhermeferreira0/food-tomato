@@ -6,4 +6,4 @@ export const cartRouter = Router();
 
 cartRouter.post('/add', authMiddleware, addToCart);
 cartRouter.post('/remove', authMiddleware, removeToCart);
-cartRouter.post('/', authMiddleware, getAllCart);
+cartRouter.get('/', authMiddleware, getAllCart);
