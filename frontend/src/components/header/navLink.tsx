@@ -6,9 +6,13 @@ interface NavLinkProps {
 export function NavLink({ href, name }: NavLinkProps) {
   return (
     <li
-      className="border-b-2 border-transparent hover:border-gray-600 transition-all"
+      className="border-b-2 border-transparent hover:border-b-gray-300 transition-all"
     >
-      <a href={href}>{name}</a>
+      <a 
+        href={href}
+      >
+        {name}
+      </a>
     </li>
   );
 }

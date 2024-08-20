@@ -1,6 +1,6 @@
 export function HeroSection() {
   return(
-    <section className="md:mx-[10%]">
+    <section>
       <figure className="relative bg-orange-500 w-full h-[500px] overflow-hidden rounded-xl drop-shadow-2xl">
         <div className="absolute top-0 right-0 flex items-center justify-center h-[500px]">
           <img
