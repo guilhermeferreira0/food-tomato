@@ -1,6 +1,5 @@
 import { type Request, type Response } from "express";
 import { User } from "../models/userModel";
-import jwt from "jsonwebtoken";
 import validator from "validator"
 import { hashPassword, verifyHashedPassword } from "../utils/hash";
 import { createToken } from "../utils/token";

@@ -18,12 +18,13 @@ connectDb().then(res => {
   console.log("Successfully connected to MongoDB!");
 });
 
+app.get('/api', (req: Request, res: Response) => {
+  res.json({success: true, data: 'API Working'});
+});
+
 // api endpoints
 app.use('/api/food', foodRouter);
 app.use('/api/user', userRouter);
 app.use('/api/cart', authMiddleware, cartRouter);
 app.use('/api/order', authMiddleware, orderRouter);
 
-app.get('/api', (req: Request, res: Response) => {
-  res.json({success: true, data: 'API Working'});
-});
