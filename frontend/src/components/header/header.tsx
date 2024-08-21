@@ -1,7 +1,14 @@
 import { FaSearch, FaShoppingCart  } from "react-icons/fa";
 import { NavLink } from "./navLink";
+import { Modal } from "../signin/modal";
+import { useState } from "react";
+import { FormLogin } from "../signin/formLogin";
+import { FormRegister } from "../signin/formRegister";
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalRegister, setModalRegister] = useState(false);
+
   return(
     <header className="flex justify-between items-center p-4">
       <h1 className="font-bold text-orange-600 text-4xl">Tomato.</h1>
@@ -20,7 +27,10 @@ export function Header() {
         <a href="/">
           <FaShoppingCart size={25} color="#6b7280"/>
         </a>
-        <button className="w-32 px-4 py-2 border-solid border-2 rounded-xl">sign in</button>
+        <button className="w-32 px-4 py-2 border-solid border-2 rounded-xl" onClick={() => setIsOpen(true)}>sign in</button>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          {modalRegister ? <FormRegister setForm={() => setModalRegister(false)}/> : <FormLogin setForm={() => setModalRegister(true)} />}
+        </Modal>
       </div>
     </header>
   );
