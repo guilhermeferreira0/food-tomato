@@ -1,12 +1,13 @@
 import { FaSearch, FaShoppingCart  } from "react-icons/fa";
 import { NavLink } from "./navLink";
-import { Modal } from "../signin/modal";
+import { Modal } from "../forms/modal";
 import { useState } from "react";
-import { FormLogin } from "../signin/formLogin";
-import { FormRegister } from "../signin/formRegister";
+import { FormLogin } from "../forms/formLogin";
+import { FormRegister } from "../forms/formRegister";
+import { useAuth } from "../../contexts/useAuth";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const {modalIsOpen, setModalIsOpen} = useAuth();
   const [modalRegister, setModalRegister] = useState(false);
 
   return(
@@ -24,11 +25,11 @@ export function Header() {
         <a href="/">
           <FaSearch size={25} color="#6b7280"/>
         </a>
-        <a href="/">
+        <a href="/cart">
           <FaShoppingCart size={25} color="#6b7280"/>
         </a>
-        <button className="w-32 px-4 py-2 border-solid border-2 rounded-xl" onClick={() => setIsOpen(true)}>sign in</button>
-        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <button className="w-32 px-4 py-2 border-solid border-2 rounded-xl" onClick={() => setModalIsOpen(true)}>sign in</button>
+        <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
           {modalRegister ? <FormRegister setForm={() => setModalRegister(false)}/> : <FormLogin setForm={() => setModalRegister(true)} />}
         </Modal>
       </div>

@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import { Header } from './components/header/header';
-import { HomePage } from './pages/HomePage';
-import { AuthProvider } from './context/AuthContext';
+import { App } from './app';
 
 
 const root = ReactDOM.createRoot(
@@ -12,15 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <Header />
-        <main className="md:mx-[10%] flex flex-col gap-8">
-          <Routes>
-            <Route path='/' Component={HomePage} />
-          </Routes>
-        </main>
-      </AuthProvider>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>
 );
