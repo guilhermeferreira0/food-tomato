@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const uri = "mongodb+srv://guilhermefsilva23:qdwmsaWOQpmam4Di@cursojs.m2ldexu.mongodb.net/food_tomato?retryWrites=true&w=majority&appName=cursojs";
+const uri = process.env.MONGODB_URL as string;
 
 // if (uri) throw new Error('ENV MONGODB_URL undefined');
 
