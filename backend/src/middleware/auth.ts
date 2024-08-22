@@ -2,6 +2,7 @@ import { NextFunction, type Request, type Response } from "express";
 import { verifyToken } from "../utils/token";
 
 export async function authMiddleware(req: Request, res: Response, next: NextFunction) {
+  console.log(req.headers.cookie)
   const { token } = req.headers;
   if (!token) return res.status(407).json({success: false, message: 'Not Authorized Login Again'});
 

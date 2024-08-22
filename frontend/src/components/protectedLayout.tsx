@@ -1,5 +1,5 @@
-import { useAuth } from "../contexts/useAuth";
-import {getUserLocalStorage} from '../contexts/util';
+import { useAuth } from "../contexts/AuthContext/useAuth";
+import {getTokenCookie, getUserLocalStorage} from '../contexts/AuthContext/util';
 
 interface ProtectedLayoutProps {
   children: JSX.Element
@@ -8,8 +8,10 @@ interface ProtectedLayoutProps {
 export function ProtectedLayout({children}: ProtectedLayoutProps) {
   const auth = useAuth();
   const userLocalStorage = getUserLocalStorage();
+  const token = getTokenCookie();
 
   if (
+      !token ||
       !auth.user.token ||
       auth.user.email !== userLocalStorage.email ||
       auth.user.token !== userLocalStorage.token 

@@ -1,4 +1,10 @@
-import { Api } from "../api";
+import { Api } from "../../api";
+import Cookies from 'universal-cookie';
+
+export function getTokenCookie() {
+  const cookies = new Cookies();
+  return cookies.get('jwt_authorization');
+}
 
 export function setUserLocalStorage(user: any) {
   localStorage.setItem('ustj', JSON.stringify(user));

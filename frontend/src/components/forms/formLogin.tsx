@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../contexts/useAuth';
-import { redirect } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext/useAuth';
 
 interface FormLoginProps {
   setForm: () => void
@@ -8,12 +7,12 @@ interface FormLoginProps {
 
 export function FormLogin({setForm}: FormLoginProps) {
   const { register, handleSubmit, formState: {errors}, reset } = useForm();
-  const { authenticate } = useAuth();
+  const { authenticate, setModalIsOpen } = useAuth();
 
   const submitForm = async (data: any) => {
     await authenticate(data.email, data.password);
     reset({email: '', password: ''});
-    redirect('/');
+    setModalIsOpen(false);
   } 
 
   return (

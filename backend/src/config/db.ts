@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import 'dotenv/config';
 
 const uri = process.env.MONGODB_URL as string;
 
